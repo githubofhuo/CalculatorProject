@@ -12,8 +12,8 @@ protected:
 protected:
     bool eventFilter(QObject *target, QEvent *event);
 protected:
-//      void dragEnterEvent(QDragEnterEvent *event);
-//      void dropEvent(QDropEvent *event);
+     //void dragEnterEvent(QDragEnterEvent *event);
+     //void dropEvent(QDropEvent *event);
 private:
       bool readFile(const QString &fileName);
 private :

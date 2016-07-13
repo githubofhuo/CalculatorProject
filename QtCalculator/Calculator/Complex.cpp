@@ -82,7 +82,7 @@ void Complex::cPow(Complex Index, bool isDeg)
     if(fabs(Real)>eps)
         angle=atan(Imag/Real);
     else
-        angle=(Imag>0)?$pi/2:-$pi/2;
+        angle=(Imag>0) ? $pi/2 : -$pi/2;
     if(Real<0&&Imag>=0)
         angle+=$pi;
     if(Real<0&&Imag<0)

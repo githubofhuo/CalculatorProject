@@ -3,7 +3,7 @@
 Polynomial::Polynomial(int nn,Complex *a)
 {
 	n=nn;
-	p= new Complex [n+1];
+    p= new Complex[n+1];
 	for(int i=0;i<=n;i++)
 		p[i] = a[i];
 }
@@ -33,7 +33,9 @@ Complex Polynomial::poly_value(const Complex &x)   //多项式求值p(x)
 void Polynomial::poly_reduce(const Complex &root)
 {
     for(int i=1;i<n;++i)
-    {p[i]+=p[i-1]*root;}
+    {
+        p[i]+=p[i-1]*root;
+    }
     n--;
 }
 double Polynomial::poly_search_R()

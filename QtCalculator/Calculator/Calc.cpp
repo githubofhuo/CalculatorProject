@@ -1,4 +1,3 @@
-
 #include"Calc.h"
 #include<cmath>
 #include<qmath.h>
@@ -26,7 +25,10 @@ int CCalculator::TransExp(QString &express)
                  str="";
                  do{
                      if(express[i]==' ')
-                         {i++;continue;}
+                     {
+                         i++;
+                         continue;
+                     }
                      if(oldSystem!=16&&express[i].isUpper())
                      {
                          ERRORBEGIN=i;
@@ -115,7 +117,10 @@ int CCalculator::TransExp(QString &express)
          for(i=0;i<size&&countBack>=0;i++)
          {
              if(express[i].isUpper())
-             {ERRORBEGIN=i;return RET_UPPERLETTER;}
+             {
+                 ERRORBEGIN=i;
+                 return RET_UPPERLETTER;
+             }
              else
              {
                 charray[len++]=express[i];

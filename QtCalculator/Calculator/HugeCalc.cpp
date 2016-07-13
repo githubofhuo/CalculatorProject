@@ -32,7 +32,7 @@ HugeCalc::HugeCalc(QWidget *parent):QWidget(parent)
     isAssiged[0]=isAssiged[1]=isAssiged[2]=false;
 }
 void HugeCalc::closeEvent(QCloseEvent *event)
- {
+{
     QMessageBox::StandardButton ret;
     ret = QMessageBox::question(this, tr("BigInteger Tool"),
                   tr("Are you sure you want to close this Window?"),
@@ -42,7 +42,7 @@ void HugeCalc::closeEvent(QCloseEvent *event)
     } else {
          event->ignore();
     }
- }
+}
 void HugeCalc::on_input_pushButton_clicked()
 {
     int Index=input_comboBox->currentIndex();

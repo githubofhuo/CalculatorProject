@@ -10,11 +10,17 @@ BigInt::BigInt()
 BigInt::BigInt(qllong obj)
 {
     if(obj<0)
-    {sign=true,obj = -obj;}
-    else sign =false;
-    digital[0]=obj%BASE;len=0;
-    while(obj/=BASE)
-    {digital[++len] = obj%BASE;}
+    {
+        sign=true,obj = -obj;
+    }
+    else
+        sign =false;
+    digital[0]=obj%BASE;
+    len=0;
+    while(obj /= BASE)
+    {
+        digital[++len] = obj%BASE;
+    }
     isLegal=true;
 }
 BigInt::BigInt(const BigInt &obj)
@@ -36,7 +42,9 @@ BigInt& BigInt::operator = (QString qstr)
 {
 	int i=0,j,k;
     if(qstr[0]=='-')
-    {sign=1;}
+    {
+        sign=1;
+    }
 	else 
     {
         sign=0;
@@ -48,7 +56,8 @@ BigInt& BigInt::operator = (QString qstr)
 	{
 		for(j=0,digital[k]=0;j<BASELEN;++j)
         {
-            if(qstr[i+j]==' ')continue;
+            if(qstr[i+j]==' ')
+                continue;
             digital[k]=digital[k]*10+qstr[i+j].toLatin1()-'0';
         }
 	}
@@ -76,11 +85,27 @@ BigInt BigInt::operator +(const BigInt &obj)
 			carry= carry/BASE;
 		}
 		for(;i<=len;i++)
-		{carry = carry + digital[i], sum.digital[i] = carry%BASE, carry/=BASE;}
+        {
+            carry = carry + digital[i],
+            sum.digital[i] = carry%BASE,
+            carry/=BASE;
+        }
 		for(;i<=obj.len;i++)
-		{carry = carry +obj.digital[i], sum.digital[i] = carry%BASE,carry =carry/BASE;}
-		if(carry&&i<MAXN){sum.digital[i]=carry;sum.len=i;}
-        else if(carry&&i==MAXN){isLegal=false;return *this;}
+        {
+            carry = carry +obj.digital[i],
+            sum.digital[i] = carry%BASE,
+            carry =carry/BASE;
+        }
+        if(carry&&i<MAXN)
+        {
+            sum.digital[i]=carry;
+            sum.len=i;
+        }
+        else if(carry&&i==MAXN)
+        {
+            isLegal=false;
+            return *this;
+        }
 		else sum.len=i-1;
 		sum.sign = sign;
 		return sum;
